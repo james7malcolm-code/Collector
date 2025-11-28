@@ -3,7 +3,7 @@ export default async function Page() {
     cache: "no-store"
   });
 
-  const data = await res.HTML();
+  const data = await res.text();
 
   return (
     <pre>{JSON.stringify(data, null, 2)}</pre>
