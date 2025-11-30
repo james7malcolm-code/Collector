@@ -1,10 +1,14 @@
-import React from 'react';
+export default async function handler(req, res) {
+  try {
+    const response = await fetch("https://interpals.net/list-files");
+    const data = await response.json();
 
-export default async function Page() {
-  const res = await fetch('https://snapchat.com', { cache: 'no-store' });
-  const rawHtml = await res.text();
+    res.status(200).json({
+      success: true,
+      files: data
+    });
 
-  return (
-    <div dangerouslySetInnerHTML={{ __html: rawHtml }} />
-  );
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch file list" });
+  }
 }
