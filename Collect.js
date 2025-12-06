@@ -1,3 +1,13 @@
+Type: MX
 Priority: 10
-Host: @
+Name: @
 Value: mx1.improvmx.com
+
+Type: MX
+Priority: 20
+Name: @
+Value: mx2.improvmx.com
+
+Type: TXT
+Name: @
+Value: v=spf1 include:improvmx.com ~all
